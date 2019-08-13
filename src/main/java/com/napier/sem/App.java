@@ -90,7 +90,7 @@ public class App
     {
         try
         {
-            // Create an SQL statement
+            // Create an SQL statement.........
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
