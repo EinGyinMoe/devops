@@ -17,6 +17,9 @@ public class App {
         // Test the size of the returned data - should be 240124
         System.out.println(employees.size());
 
+        Department d1= a.getDepartment("Marketing");
+        System.out.println(d1);
+
         // Disconnect from database
         a.disconnect();
     }
@@ -169,6 +172,39 @@ public class App {
     }
 
     public ArrayList<Employee> getSalariesByDepartment(Department dept) {
-        return null;
+
+
+
+
+
+
+
+
+    }
+
+    public Department getDepartment(String dept_name) {
+        try {
+            Department d=null;
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT * from departments where departments.dept_name='dept_name'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract employee information
+          //  ArrayList<Employee> employees = new ArrayList<Employee>();
+            while (rset.next()) {
+                d= new Department();
+                d.dept_no=rset.getInt(1);
+                d.dept_name=rset.getString(2);
+
+            }
+            return d;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
     }
 }
