@@ -4,7 +4,7 @@ public class Department {
     /**
      * Department number
      */
-    public int dept_no;
+    public String dept_no;
 
     @Override
     public String toString() {
@@ -15,13 +15,7 @@ public class Department {
                 '}';
     }
 
-    public int getDept_no() {
-        return dept_no;
-    }
 
-    public void setDept_no(int dept_no) {
-        this.dept_no = dept_no;
-    }
 
     public String getDept_name() {
         return dept_name;
